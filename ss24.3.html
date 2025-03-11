@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         let myArray = [];
+        do{
+            console.log("1.Nhập mảng số nguyên");
+            console.log("2.Hiển thị mảng");
+            console.log("3.Tìm các phần tử chẵn và lẻ");
+            console.log("4.Tính tổng và trung bình cộng của các số dương trong mảng");
+            console.log("5.Đảo ngược mảng");
+            console.log("6.Kiểm tra mảng có đối xứng không");
+            console.log("7.Thoát");
+            choice = +prompt("Lựa chọn của bạn ");
+            switch(choice){
+                case 1:
+                let n = +prompt("Nhập vào số lượng phần tử của mảng :");
+                 if(n<0){
+                    console.log("Số lượng phần tử không hợp lệ ")
+                }else if (n === 0 ){
+                 console.log("Mảng không có phần tử")
+                }else{
+                for (let i = 0; i < n; i++) {
+                    let value = +prompt(`Mời bạn nhập vào số nguyên thứ ${i + 1}`);
+                   if(isNaN(value) || !Number.isInteger(value)){
+                    console.log("Gía trị không hợp lệ")
+                    break;
+                   }
+                myArray[i] = value;    
+               }             
+            }         
+                break;
+                    
+                case 2:
+                if(myArray.length === 0){
+                    console.log("Mảng không có dữ liệu");
+                }else{
+                    console.log(myArray);
+                }
+                break;
+                case 3:
+                        let index = 0;
+                        let arrMax = myArray[0];
+                        for(let i = 0; i < myArray.length; ){
+                            if(myArray[i] > arrMax){
+                                arrMax = myArray[i];
+                                index = i;
+                            }
+                        }
+                        console.log(i);
+                    break;
+                case 4:
+                    let sum = 0;
+                    let avg ;
+                   for( i = 0; i < myArray.length; i++ ){
+                    if(myArray[i] > 0){
+                        sum += myArray[i];
+                    }
+                   }
+                   avg = sum/myArray.length;
+                   console.log(`Tổng của mảng là ${sum}`);
+                   console.log(` trung bình cộng của mảng là ${avg} `);
+                   break;
+                case 5:
+                    myArray.reverse();
+                    console.log(myArray);
+                    break;
+                case 6:
+                   let flag = 1;
+                   for(let i = 0; i < myArray.length/2; i++){
+                    if(myArray[i] !== myArray[myArray.length-1-i]){
+                        flag = 0;
+                        break;
+                    }
+                   }    if(flag === 1){
+                    console.log(`Đây là mảng đối xứng`);
+                   }else{
+                    console.log(` Đây không phải là mảng đối xứng `);
+                   }
+                    break;
+                case 7:
+                    break;
+                    
+
+
+            }
+        }while(choice !== 7);
+
+
+    </script>
+</body>
+</html>
