@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n;
+        let arr=[];
+        let choice;
+    do{
+        console.log("1.Nhập mảng");
+        console.log("2.Hiển thị mảng");
+        console.log("3.Tìm các phần tử chẵn lẻ trong mảng");
+        console.log("4.Tính trung bình cộng mảng");
+        console.log("5.Xóa phần tử tại vị trí chỉ định");
+        console.log("6.Tìm phần tử lớn thứ hai trong mảng");
+        console.log("7.Thoát");
+
+    choice=+prompt("Nhập lựa chọn của bạn");
+    switch(choice){
+        case 1:
+            n=+prompt("Nhập n");
+            for(let i=0; i<n; i++){
+                arr[i]=+prompt(`Phần tử thứ ${i+1}`);
+            }
+            break;
+        case 2:
+            for(let i=0; i<n; i++){
+                console.log(`${arr[i]}`);
+            }
+            break;
+        case 3:
+            console.log("Các phần tử là số chẵn là: ")
+            for(let i=0; i<n; i++){
+                if(arr[i]%2==0){
+                    console.log(`${arr[i]}`);
+                }
+            }
+            console.log("Các phần tử số lẻ là");
+            for(let i=0; i<n; i++){
+                if(arr[i]%2!=0){
+                    console.log(`${arr[i]}`);
+                }
+            }
+            break;
+        case 4:
+            let sum=0;
+            let avg;
+            for(let i=0; i<n; i++){
+                sum+=arr[i];
+            }
+            avg = sum/n;
+            console.log(`Trung bình cộng của mảng là: ${avg}`);
+            break;
+        case 5:
+            let inputNumber=+prompt("Nhập vị trí phần tử cần xóa");
+            arr.splice(inputNumber, 1);
+            break;
+        case 6:
+            let max1=arr[0];
+            let max2=arr[0];
+            for(let i=0; i<n; i++){
+                    if(arr[i]>max1){
+                        max2=max1;
+                        max1=arr[i];
+                    }else if(arr[i] > max2 && arr[i] < max1){
+                        max2=arr[i];
+                    }
+            }
+            console.log(max1==max2 ? null : max2);
+            break;
+        case 7:
+            console.log("Thoát");
+            break;
+        default:
+            console.log("Lựa chọn không hợp lệ");
+    }
+}while(choice!=7);
+
+
+    </script>
+</body>
+</html>
