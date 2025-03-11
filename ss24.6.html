@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let choice;
+        let string;
+    do{
+        console.log("MENU");    
+        console.log("1:Nhập chuỗi");
+        console.log("2:Hiển thị chuỗi");
+        console.log("3:Tính độ dài của chuỗi");
+        console.log("4:Đếm số lần xuất hiện của một ký tự (Người dùng nhập) trong chuỗi");
+        console.log("5:Kiểm tra chuỗi có phải là chuỗi đối xứng không");
+        console.log("6:Chuyển đổi chuỗi thành chữ in hoa các ký tự đầu tiên của từ");
+        console.log("7:Thoát chương trình");
+        console.log("&:Thoat")
+        choice =+prompt("Mời bạn nhập lựa chọn của bạn(1-7)");
+
+    switch(choice){
+        case 1:
+            string=prompt("Mời bạn nhập vào chuỗi bất kì");
+            break;
+        case 2:
+            console.log(string);
+            break;
+        case 3:
+            let leng = string.length;
+            console.log(`độ dài của chuỗi là ${leng}`);
+            break;
+        case 4:
+        let count =0;
+        let letter=prompt("Mời bạn nhập kí tự cần kiểm tra trong chuỗi");
+        let newString=string.split("");
+        for(let i =0;i<string.length;i++){
+            if(newString[i]===letter){
+                count++;
+            }
+        }
+        if(count>0){
+            console.log(`Số lượng kí tự đó trong chuỗi là ${count}`);
+        }else{
+            console.log("Không tồn tại kí tự không chuỗi");
+        }
+            break;
+        case 5:
+            let neString = string.split("");
+            let flag = true;
+            
+            for (let i = 0; i < Math.floor(string.length / 2); i++) {
+                if (neString[i] !== neString[string.length - i - 1]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                console.log("Đây là chuỗi đối xứng");
+            } else {
+                console.log("Đây không phải là chuỗi đối xứng");
+            }
+            
+            break;
+        case 6:
+            let words = string.split(" ");
+            let letterUpperCase = "";
+
+        for (let i = 0; i < words.length; i++) {
+             if (i > 0) {
+        letterUpperCase += " ";
+        }
+         letterUpperCase += words[i][0].toUpperCase() + words[i].substring(1);
+    }
+
+        console.log(letterUpperCase);
+
+            break;
+        case 7:
+            console.log("Bạn đã thoát chương trình");
+            break;
+        default:
+            console.log("Lựa chọn không hợp lệ vui lòng chọn lại");
+            break;
+    }
+            }while(choice!=7);
+    </script>
+</body>
+</html>
